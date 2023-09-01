@@ -1591,8 +1591,10 @@ class Library(BuildBase):
         aslog('build objs of %s' % (libName))
         env = self.ensure_env()
         CPPPATH = getattr(self, 'CPPPATH', [])
+        # CPPDEFINES = getattr(self, 'CPPDEFINES', []) + \
+        #     env.get('CPPDEFINES', [])
         CPPDEFINES = getattr(self, 'CPPDEFINES', []) + \
-            env.get('CPPDEFINES', [])
+            list( env.get('CPPDEFINES', []) )
         CFLAGS = env.get('CFLAGS', [])
         ASFLAGS = env.get('ASFLAGS', [])
         CPPFLAGS = getattr(self, 'CPPFLAGS', []) + env.get('CPPFLAGS', [])
@@ -1702,7 +1704,7 @@ class Application(BuildBase):
         aslog('build application %s' % (appName))
         LIBS = env.get('LIBS', [])
         CPPDEFINES = getattr(self, 'CPPDEFINES', []) + \
-            env.get('CPPDEFINES', [])
+            list( env.get('CPPDEFINES', []) )
         CPPFLAGS = getattr(self, 'CPPFLAGS', []) + env.get('CPPFLAGS', [])
         LINKFLAGS = getattr(self, 'LINKFLAGS', []) + env.get('LINKFLAGS', [])
         CPPPATH = self.ProcessCPPPATH(getattr(self, 'CPPPATH', []))

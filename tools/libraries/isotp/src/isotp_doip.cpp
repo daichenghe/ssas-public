@@ -3,6 +3,7 @@
  * Copyright (C) 2023 Parai Wang <parai@foxmail.com>
  */
 /* ================================ [ INCLUDES  ] ============================================== */
+#include <stdlib.h>
 #include "isotp.h"
 #include "isotp_types.h"
 #include "doip_client.h"
